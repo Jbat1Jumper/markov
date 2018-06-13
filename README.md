@@ -14,10 +14,15 @@ supports all types that implement `Eq`, `Hash`, and `Clone`, and has some specif
 working with `String` as text generation is the most likely use case. You can find up-to-date,
 ready-to-use documentation online [on docs.rs][doc].
 
-__Note__: `markov` is in passive maintenance mode. It should work well for its intended use case
-(largely textual generation, especially in chat bots and the like), but will likely not grow to any
-further use cases. If it does not meet your needs in a broad sense, you should likely fork it or
-develop a more purpose-built library. Nevertheless, bug reports will still be triaged and fixed.
+__Note__: This fork is an attempt to generalize a little bit more this implementation focusing on the
+next point:
+
+- Remove `None` as a valid token value and the assumption that a chain starts and terminates with it.
+- Expose the possibility to feed the chain based on the previous step and the next one.
+- Implement iterators for each step of the markov chain instead of runs.
+- Take an instance of an RNG instead of using the thread one.
+- Add an implementation of the new generalized chain compatible with the current one.
+
 
 ## Examples ##
 

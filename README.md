@@ -14,14 +14,20 @@ supports all types that implement `Eq`, `Hash`, and `Clone`, and has some specif
 working with `String` as text generation is the most likely use case. You can find up-to-date,
 ready-to-use documentation online [on docs.rs][doc].
 
-__Note__: This fork is an attempt to generalize a little bit more this implementation focusing on the
-next point:
+__Note__: This fork is an attempt to generalize a little bit this implementation focusing on the
+next points:
 
 - Remove `None` as a valid token value and the assumption that a chain starts and terminates with it.
 - Expose the possibility to feed the chain based on the previous step and the next one.
 - Implement iterators for each step of the markov chain instead of runs.
-- Take an instance of an RNG instead of using the thread one.
+- Take an instance of an RNG as a parameter instead of using the thread one.
 - Add an implementation of the new generalized chain compatible with the current one.
+
+My purpose is to have an implementation capable of:
+
+- Plugging the chain into a stream of data.
+- Generating a continuos stream of data from the chain.
+- Predict or measure the probability of the next step given a current state.
 
 
 ## Examples ##
